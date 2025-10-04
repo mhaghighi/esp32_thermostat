@@ -337,7 +337,7 @@ uint8_t i = 0;
     {
       digitalWrite(KEYS_BL_PIN, 1);
       display.setIntensity(6);
-      // display_task();
+      display_task();
       drive_task();
     }
     else
