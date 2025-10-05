@@ -66,7 +66,7 @@ void setup(void)
   // Start up the library
   sensors.begin();
   // display.clear();
-  // display.setCursor(1); 
+  // display.setCursor(0); 
   // display.print("--");
 
   // Initialize the sensor, if using i2c you can pass in the i2c address
@@ -245,11 +245,10 @@ void display_task()
     else if (display_mode == 0)
     {
       roomTempInt = round(roomTemp);
-      // outTempInt  = round(outTemp);
-      sprintf(roomTempStr, "%d.", roomTempInt); //append dot(.) as degC
-      //Serial.print(roomTempStr);
-      display.setCursor(0); 
+      //display.setCursor(0); // caused DP flickering
+      sprintf(roomTempStr, "%2d.", roomTempInt);
       display.print(roomTempStr);
+      // display.printf("%2d.", roomTempInt);//append dot(.) as degC
     }
 
     // update segment 3 leds
